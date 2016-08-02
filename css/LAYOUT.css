@@ -2,6 +2,7 @@
     background-color: #333333;
     height: 59px;
     color: white;
+    padding: 10px;
 }
 .w{
     color:white;
@@ -9,7 +10,7 @@
 .vertical-center {
     min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
     min-height: 100vh; /* These two lines are counted as one :-)       */
-
+    
     display: flex;
     align-items: center;
 }
@@ -19,7 +20,7 @@
 }
 .mainheader{
     background-color: #e0e0e0;
-    height: 75px; 
+    height: 75px; padding: 2px;
 }
 .l{
     font-family: Arial Black ;
@@ -77,12 +78,14 @@ content: none;
 }
     .main-artical{
         border: 1px solid black; 
-        height: 340px;min-height: 340px;max-height: 1000px;
+        height: 340px;min-height: 340px;
         margin: 14px 0px 0px 40px;overflow: hidden;
         
     }
         .main-artical-display{
-            border: 1px solid black;              
+            border-width: 0px 0px 1px 1px;
+            border-color: black;
+            border-style: solid;
             height: 270px;
             margin: 0px;
             padding: 5px;
@@ -162,8 +165,7 @@ content: none;
 /*slider section beging*/
 .slider{
     border: 1px solid black;
-    background-color: #ffffff;
-    
+    background-color: #ffffff;    
     overflow: hidden;
     margin: 10px 0px 0px 43px;
         
@@ -223,19 +225,53 @@ content: none;
     padding: 10px 0px 75px 0px;  
 }
 .ex1{
-    border: 1px solid black;
-    background-image: url(../image/1.jpg);
-    background-size: cover;
-    height: 58px;
-    margin: 0px 0px 0px 10px;padding: 10px 10px 10px 0px;
+   padding: 10px 10px 10px 0px;
 }
 .ex2{
-    border: 1px solid black;
-    background-image: url(../image/2.jpg);
-    background-size: cover;
-    height: 58px;
-    margin: 0px 0px 0px 10px;padding: 10px 10px 10px 0px;
+   padding: 10px 10px 10px 0px;
+}/*flip starts*/
+.flip-container {
+	perspective: 1000px;
 }
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .front, .back {
+	width: 110px;
+	height: 60px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+}/*flips ends*/
+
 /*external section ends*/
 /*feedback section starts*/
 .feedback{
@@ -300,7 +336,6 @@ content: none;
             text-align: center;
             background: #ddd;
             height: 60px;
-           
         }
         
         #custom_carousel .controls li {
@@ -388,4 +423,78 @@ content: none;
             height: 50px;
         }
 }
-/*sliders carousel ends*/
+                                                                        /*sliders carousel ends*/
+                                                                        /*feedback scroll starts here*/
+.feedback ul{
+    
+    background: red;
+    position: relative;
+    -webkit-animation: myfirst 2s infinite; /* Chrome, Safari, Opera */
+    -webkit-animation-direction: alternate; /* Chrome, Safari, Opera */
+    animation: myfirst 5s infinite;
+    animation-direction: alternate;
+}
+.feedback ul:hover {
+    -webkit-animation-play-state: paused;  /* Chrome, Safari, Opera */
+    animation-play-state: paused;
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes myfirst {
+    0%   {background: red; left: 0px; top: 0px;}
+    25%  {background: yellow; left: 200px; top: 0px;}
+    50%  {background: blue; left: 200px; top: 200px;}
+    75%  {background: green; left: 0px; top: 200px;}
+    100% {background: red; left: 0px; top: 0px;}
+}
+
+@keyframes myfirst {
+    0%   {background: red; left: 0px; top: 0px;}
+    25%  {background: yellow; left: 200px; top: 0px;}
+    50%  {background: blue; left: 200px; top: 200px;}
+    75%  {background: green; left: 0px; top: 200px;}
+    100% {background: red; left: 0px; top: 0px;}
+}
+                                                                   /*feedback scroll ends*/
+                                                                  /*announcement headind highlights starts*/
+#announcement h5 {
+    background: red;
+    color: white;
+    -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
+    animation: mymove 5s infinite;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    from {background-color: red;}
+    to {background-color: blue;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+    from {background-color: red;}
+    to {background-color: blue;}
+}
+                                                                    /*announcement headind highlights ends*/
+                                                                    /*work in progress*/
+#work-progress ul li {
+    position: relative;
+    -webkit-animation: mymove1 5s infinite;  /* Chrome, Safari, Opera */
+    animation: mymove1 5s infinite;
+}
+
+#work-progress ul li:hover {
+    -webkit-animation-play-state: paused;  /* Chrome, Safari, Opera */
+    animation-play-state: paused;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove1 {
+    from {right: 0px;}
+    to {right: 200px;}
+}
+
+@keyframes mymove1 {
+    from {left: 0px;}
+    to {left: 200px;}
+}
+                                                                        /*work in progress ends*/
